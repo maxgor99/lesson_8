@@ -26,7 +26,6 @@ public class PracticeFormFixture {
 
 
     public static String getRandomCity(String state) {
-        Faker faker = new Faker();
         switch (state) {
             case "NCR":
                 return faker.options().option("Delhi", "Gurgaon", "Noida");
