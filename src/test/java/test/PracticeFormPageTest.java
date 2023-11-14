@@ -2,18 +2,18 @@ package test;
 
 
 import org.junit.jupiter.api.Test;
-import pages.PracticeForm;
-import pages.fixture.PracticeFormFixture;
+import pages.PracticeFormPage;
+import fixture.PracticeFormPageFixture;
 
 
-public class PracticeFormTest extends BaseTest {
-    PracticeForm practiceForm = new PracticeForm();
-    PracticeFormFixture fixture = new PracticeFormFixture();
+public class PracticeFormPageTest extends BaseTest {
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
+    PracticeFormPageFixture fixture = new PracticeFormPageFixture();
 
 
     @Test
     void successPracticeFormTest() {
-        practiceForm.openPage().
+        practiceFormPage.openPage().
                 setFirstName(fixture.firstName).
                 lastNameInput(fixture.lastName).
                 userEmailInput(fixture.email).
@@ -29,7 +29,7 @@ public class PracticeFormTest extends BaseTest {
                 pressSubmit();
 
 
-        practiceForm.checkResult("Student Name", fixture.firstName + " " + fixture.lastName)
+        practiceFormPage.checkResult("Student Name", fixture.firstName + " " + fixture.lastName)
                 .checkResult("Student Email", fixture.email)
                 .checkResult("Gender", fixture.gender)
                 .checkResult("Mobile", fixture.phoneNumber)
@@ -46,7 +46,7 @@ public class PracticeFormTest extends BaseTest {
 
     @Test
     void checkRequiredFieldsTest() {
-        practiceForm.openPage().
+        practiceFormPage.openPage().
                 setFirstName(fixture.firstName).
                 lastNameInput(fixture.lastName).
                 userNumberInput(fixture.phoneNumber).
@@ -54,7 +54,7 @@ public class PracticeFormTest extends BaseTest {
                 setDateOfBirth(fixture.dayOfBirth, fixture.mountOfBirther, fixture.yearOfBirth).
                 pressSubmit();
 
-        practiceForm.checkResult("Student Name", fixture.firstName + " " + fixture.lastName)
+        practiceFormPage.checkResult("Student Name", fixture.firstName + " " + fixture.lastName)
                 .checkResult("Gender", fixture.gender)
                 .checkResult("Mobile", fixture.phoneNumber)
                 .checkResult("Date of Birth", fixture.dayOfBirth + " " + fixture.mountOfBirther + "," + fixture.yearOfBirth);
@@ -64,7 +64,7 @@ public class PracticeFormTest extends BaseTest {
 
     @Test
     void negativePracticeFormTest() {
-        practiceForm.openPage().
+        practiceFormPage.openPage().
                 openPage().
                 setFirstName(fixture.firstName).
                 lastNameInput(fixture.lastName).
@@ -74,7 +74,7 @@ public class PracticeFormTest extends BaseTest {
                 pressSubmit();
 
 
-        practiceForm.formResult();
+        practiceFormPage.formResult();
 
 
     }

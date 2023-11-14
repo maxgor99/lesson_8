@@ -1,12 +1,11 @@
-package pages.fixture;
+package fixture;
 
 import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
-public class PracticeFormFixture {
+public class PracticeFormPageFixture {
 
-    // Faker faker = new Faker();
     static Faker faker = new Faker(new Locale("en-GB"));
 
     public String firstName = faker.name().firstName(),
@@ -26,7 +25,6 @@ public class PracticeFormFixture {
 
 
     public static String getRandomCity(String state) {
-        Faker faker = new Faker();
         switch (state) {
             case "NCR":
                 return faker.options().option("Delhi", "Gurgaon", "Noida");
